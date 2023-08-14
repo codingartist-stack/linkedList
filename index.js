@@ -1,6 +1,6 @@
 function linkedList(theList) {
   const head = theList[0];
-  const tail = theList.length - 1;
+  const tail = theList[theList.length - 1];
   const size = theList.length;
 
   return {
