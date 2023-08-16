@@ -1,56 +1,76 @@
-function linkedList(theList) {
-  const head = theList[0];
-  const tail = theList[theList.length - 1];
-  const size = theList.length;
+function linkedNode(data, next = null) {
+  return {
+    data,
+    next,
+  };
+}
 
-  function append(value) {
-    theList.push(value);
-    return theList;
+function linkedList() {
+  let [head, tail, size] = [null, null, 0];
+
+  function append(data) {
+    const next = linkedNode(data);
+
+    if (head === null) {
+      head = next;
+      tail = next;
+    } else {
+      tail.next = next;
+      tail = next;
+    }
+    size++;
   }
 
-  //   function prepend(value) {
-  //     theList.unshift(value);
-  //     return theList;
-  //   }
+  const prepend = (data) => {
+    const node = linkedNode(data);
+
+    if (head === null) {
+      head = node;
+      tail = node;
+    } else {
+      node.next = head;
+      head = node;
+    }
+    size++;
+  };
+
+  const getHead = () => head;
+  const getTail = () => tail;
+  const getSize = () => size;
 
   //   function at(index) {
-  //     return theList[index];
+  //
   //   }
+
+  const at = (index) => {};
 
   //   function pop() {
-  //     theList.pop();
-  //     return theList;
+  //
   //   }
 
-  //   function contains(value) {
+  //   function contains(data) {
   //     //is the list sorted?
   //     //returns true if on the list otherwise return false
-  //     return theList.includes(value);
+  //
   //   }
 
-  //   function find(value) {
+  //   function find(data) {
   //     //returns the index or null if not found
-  //     return indexOf(value);
+  //
   //   }
 
   //   function toString() {
   //     //turns your linked list into strings
-  //     //format ( value ) -> ( value ) -> ( value ) -> null
-  //     let stringList = '';
-
-  //     for (let i = 0; i < theList.length; i++) {
-  //       stringList + '( ' + theList[i] + ' ) -> ';
-  //     }
-
-  //     return stringList + 'null';
+  //     //format ( data ) -> ( data ) -> ( data ) -> null
+  //
   //   }
 
   return {
-    head,
-    tail,
-    size,
     append,
-    // prepend,
+    getHead,
+    getTail,
+    getSize,
+    prepend,
     // at,
     // pop,
     // contains,
@@ -59,9 +79,13 @@ function linkedList(theList) {
   };
 }
 
-function linkedNode(value, nextNode = null) {
-  return {
-    value,
-    nextNode,
-  };
-}
+const list = linkedList();
+
+[1, 2, 3, 4].forEach((v) => list.append(v));
+
+list.prepend(5);
+
+console.log(list);
+console.log('Head: ' + JSON.stringify(list.getHead()));
+console.log('Tail: ' + JSON.stringify(list.getTail()));
+console.log('Size of List: ' + JSON.stringify(list.getSize()));
