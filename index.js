@@ -49,14 +49,14 @@ function linkedList() {
   };
 
   const pop = () => {
-    //remove the tail
+    count = getSize();
+    secondToLast = at(count - 1);
+    secondToLast.next = null;
   };
 
-  //   function contains(data) {
-  //     //is the list sorted?
-  //     //returns true if on the list otherwise return false
-  //
-  //   }
+  const contains = (data) => {
+    //returns true if on the list otherwise return false
+  };
 
   //   function find(data) {
   //     //returns the index or null if not found
@@ -76,10 +76,7 @@ function linkedList() {
     getSize,
     prepend,
     at,
-    // pop,
-    // contains,
-    // find,
-    // toString,
+    pop,
   };
 }
 
@@ -94,3 +91,6 @@ console.log('Head: ' + JSON.stringify(list.getHead()));
 console.log('Tail: ' + JSON.stringify(list.getTail()));
 console.log('Size of List: ' + JSON.stringify(list.getSize()));
 console.log('At index: ' + JSON.stringify(list.at(3)));
+
+list.pop();
+console.log('Head: ' + JSON.stringify(list.getHead()));
