@@ -48,9 +48,9 @@ function linkedList() {
     return currentNode;
   };
 
-  //   function pop() {
-  //
-  //   }
+  const pop = () => {
+    //remove the tail
+  };
 
   //   function contains(data) {
   //     //is the list sorted?
