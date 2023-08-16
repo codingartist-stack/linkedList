@@ -38,11 +38,15 @@ function linkedList() {
   const getTail = () => tail;
   const getSize = () => size;
 
-  //   function at(index) {
-  //
-  //   }
+  const at = (index) => {
+    let currentNode = head;
 
-  const at = (index) => {};
+    for (let i = 0; i < index - 1; i++) {
+      currentNode = currentNode.next;
+    }
+
+    return currentNode;
+  };
 
   //   function pop() {
   //
@@ -71,7 +75,7 @@ function linkedList() {
     getTail,
     getSize,
     prepend,
-    // at,
+    at,
     // pop,
     // contains,
     // find,
@@ -89,3 +93,4 @@ console.log(list);
 console.log('Head: ' + JSON.stringify(list.getHead()));
 console.log('Tail: ' + JSON.stringify(list.getTail()));
 console.log('Size of List: ' + JSON.stringify(list.getSize()));
+console.log('At index: ' + JSON.stringify(list.at(3)));
