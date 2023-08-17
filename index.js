@@ -54,39 +54,36 @@ function linkedList() {
     secondToLast.next = null;
   };
 
-  //   const contains = (value) => {
-
-  //     let currentNode = head;
-  //     let outcome = false;
-  //     console.log('testing contains' + JSON.stringify(currentNode.next));
-
-  //     for (let i = 0; i < size; i++) {
-  //       console.log('testing loop' + JSON.stringify(currentNode));
-  //       if (currentNode.data !== value) {
-  //         currentNode = currentNode.next;
-  //       }
-  //       if (currentNode.data === value) {
-  //         outcome = true;
-  //         return outcome;
-  //       }
-  //     }
-  //     return outcome;
-  //   };
-
   const contains = (value) => {
-    let node = head;
+    let currentNode = head;
+    let outcome = false;
+    console.log('testing contains' + JSON.stringify(currentNode.next));
 
-    while (node.next !== null) {
-      if (node.data === value) return true;
-      node = node.next;
+    for (let i = 0; i < size; i++) {
+      console.log('testing loop' + JSON.stringify(currentNode));
+      if (currentNode.data !== value) {
+        currentNode = currentNode.next;
+      }
+      if (currentNode.data === value) {
+        outcome = true;
+        return outcome;
+      }
     }
-    return false;
+    return outcome;
   };
 
-  //   function find(data) {
+  //   const contains = (value) => {
+  //     let node = head;
+
+  //     while (node.next !== null) {
+  //       if (node.data === value) return true;
+  //       node = node.next;
+  //     }
+  //     return false;
+  //   };
+
   //     //returns the index or null if not found
-  //
-  //   }
+  const find = (value) => {};
 
   //   function toString() {
   //     //turns your linked list into strings
@@ -103,6 +100,7 @@ function linkedList() {
     at,
     pop,
     contains,
+    find,
   };
 }
 
@@ -115,4 +113,4 @@ list.prepend(5);
 console.log(list);
 
 console.log('Head: ' + JSON.stringify(list.getHead()));
-console.log('Does it have 2? ' + JSON.stringify(list.contains(2)));
+console.log('Does it have 4? ' + JSON.stringify(list.contains(4)));
