@@ -54,8 +54,25 @@ function linkedList() {
     secondToLast.next = null;
   };
 
-  const contains = (data) => {
+  const contains = (value) => {
     //returns true if on the list otherwise return false
+    count = getSize();
+    let currentNode = head;
+    let outcome = false;
+    console.log('testing contains' + JSON.stringify(currentNode.next));
+
+    for (let i = 0; i < count; i++) {
+      console.log('testing loop' + JSON.stringify(currentNode));
+      if (currentNode.data !== value) {
+        currentNode = currentNode.next;
+      }
+      if (currentNode === value) {
+        outcome = true;
+        return outcome;
+      }
+      //   currentNode = currentNode.next;
+    }
+    return outcome;
   };
 
   //   function find(data) {
@@ -77,6 +94,7 @@ function linkedList() {
     prepend,
     at,
     pop,
+    contains,
   };
 }
 
@@ -87,10 +105,11 @@ const list = linkedList();
 list.prepend(5);
 
 console.log(list);
-console.log('Head: ' + JSON.stringify(list.getHead()));
-console.log('Tail: ' + JSON.stringify(list.getTail()));
-console.log('Size of List: ' + JSON.stringify(list.getSize()));
-console.log('At index: ' + JSON.stringify(list.at(3)));
+// console.log('Head: ' + JSON.stringify(list.getHead()));
+// console.log('Tail: ' + JSON.stringify(list.getTail()));
+// console.log('Size of List: ' + JSON.stringify(list.getSize()));
+// console.log('At index: ' + JSON.stringify(list.at(3)));
 
-list.pop();
+// list.pop();
 console.log('Head: ' + JSON.stringify(list.getHead()));
+console.log('Does it have 2? ' + JSON.stringify(list.contains(2)));
