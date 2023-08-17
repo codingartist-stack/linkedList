@@ -72,6 +72,7 @@ function linkedList() {
     return outcome;
   };
 
+  // Ben's code using while
   //   const contains = (value) => {
   //     let node = head;
 
@@ -83,13 +84,30 @@ function linkedList() {
   //   };
 
   //     //returns the index or null if not found
-  const find = (value) => {};
+  const find = (value) => {
+    let index = 0;
+    let node = head;
 
-  //   function toString() {
-  //     //turns your linked list into strings
-  //     //format ( data ) -> ( data ) -> ( data ) -> null
-  //
-  //   }
+    for (let i = 0; i < size; i++) {
+      if (node.data === value) return index;
+      node = node.next;
+      console.log(index);
+      index++;
+    }
+
+    // while (node.next !== null) {
+    //   if (node.data === value) return index;
+    //   node = node.next;
+    //   console.log(index);
+    //   index++;
+    // }
+
+    return null;
+  };
+
+  //turns your linked list into strings
+  //format ( data ) -> ( data ) -> ( data ) -> null
+  const toString = () => {};
 
   return {
     append,
@@ -101,6 +119,7 @@ function linkedList() {
     pop,
     contains,
     find,
+    toString,
   };
 }
 
@@ -113,4 +132,6 @@ list.prepend(5);
 console.log(list);
 
 console.log('Head: ' + JSON.stringify(list.getHead()));
-console.log('Does it have 4? ' + JSON.stringify(list.contains(4)));
+console.log('index for 2? ' + JSON.stringify(list.find(2)));
+console.log('index for 4? ' + JSON.stringify(list.find(4)));
+console.log('index for 7? ' + JSON.stringify(list.find(7)));
