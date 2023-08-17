@@ -85,7 +85,7 @@ function linkedList() {
 
   //     //returns the index or null if not found
   const find = (value) => {
-    let index = 0;
+    let index = 1;
     let node = head;
 
     for (let i = 0; i < size; i++) {
