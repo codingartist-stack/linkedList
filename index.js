@@ -54,25 +54,33 @@ function linkedList() {
     secondToLast.next = null;
   };
 
-  const contains = (value) => {
-    //returns true if on the list otherwise return false
-    count = getSize();
-    let currentNode = head;
-    let outcome = false;
-    console.log('testing contains' + JSON.stringify(currentNode.next));
+  //   const contains = (value) => {
 
-    for (let i = 0; i < count; i++) {
-      console.log('testing loop' + JSON.stringify(currentNode));
-      if (currentNode.data !== value) {
-        currentNode = currentNode.next;
-      }
-      if (currentNode === value) {
-        outcome = true;
-        return outcome;
-      }
-      //   currentNode = currentNode.next;
+  //     let currentNode = head;
+  //     let outcome = false;
+  //     console.log('testing contains' + JSON.stringify(currentNode.next));
+
+  //     for (let i = 0; i < size; i++) {
+  //       console.log('testing loop' + JSON.stringify(currentNode));
+  //       if (currentNode.data !== value) {
+  //         currentNode = currentNode.next;
+  //       }
+  //       if (currentNode.data === value) {
+  //         outcome = true;
+  //         return outcome;
+  //       }
+  //     }
+  //     return outcome;
+  //   };
+
+  const contains = (value) => {
+    let node = head;
+
+    while (node.next !== null) {
+      if (node.data === value) return true;
+      node = node.next;
     }
-    return outcome;
+    return false;
   };
 
   //   function find(data) {
@@ -105,11 +113,6 @@ const list = linkedList();
 list.prepend(5);
 
 console.log(list);
-// console.log('Head: ' + JSON.stringify(list.getHead()));
-// console.log('Tail: ' + JSON.stringify(list.getTail()));
-// console.log('Size of List: ' + JSON.stringify(list.getSize()));
-// console.log('At index: ' + JSON.stringify(list.at(3)));
 
-// list.pop();
 console.log('Head: ' + JSON.stringify(list.getHead()));
 console.log('Does it have 2? ' + JSON.stringify(list.contains(2)));
