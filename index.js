@@ -88,14 +88,6 @@ function linkedList() {
     let index = 1;
     let node = head;
 
-    // for (let i = 0; i < size; i++) {
-    //   if (node.data === value) return index;
-    //   node = node.next;
-    //   console.log(index);
-    //   index++;
-    // }
-
-    // why did the while loop not work?
     while (node !== null) {
       if (node.data === value) return index;
       node = node.next;
@@ -111,11 +103,14 @@ function linkedList() {
   const toString = () => {
     let string = '';
     let node = head;
-    if (node.next !== null) {
-      string = +`( ${node.data} ) -> `;
-    } else {
-      return null;
+
+    while (node !== null) {
+      string += `( ${node.data} ) -> `;
+      node = node.next;
     }
+
+    string += 'null';
+
     return string;
   };
 
@@ -141,9 +136,7 @@ list.prepend(5);
 
 console.log(list);
 
-// console.log('Head: ' + JSON.stringify(list.getHead()));
-// console.log('index for 2? ' + JSON.stringify(list.find(2)));
-console.log('index for 4? ' + JSON.stringify(list.find(4)));
-// console.log('index for 7? ' + JSON.stringify(list.find(7)));
+console.log(JSON.stringify(list.getHead()));
 
-console.log('string: ' + JSON.stringify(list.toString()));
+// console.log('string: ' + JSON.stringify(list.toString()));
+console.log(list.toString());
