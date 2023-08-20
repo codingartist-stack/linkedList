@@ -130,6 +130,27 @@ function linkedList() {
     return head;
   };
 
+  const removeAt = (index) => {
+    let currentNode = head;
+    let previousNode;
+
+    if (index > size) {
+      return console.log(
+        `index(${index}) is greater than list length(list length = ${size})`
+      );
+    }
+    if (index == 1) {
+      head = head.next;
+    } else {
+      for (let i = 1; i < index; i++) {
+        previousNode = currentNode;
+        currentNode = currentNode.next;
+      }
+      previousNode.next = currentNode.next;
+    }
+    return head;
+  };
+
   return {
     append,
     getHead,
@@ -142,6 +163,7 @@ function linkedList() {
     find,
     toString,
     insertAt,
+    removeAt,
   };
 }
 
@@ -153,4 +175,4 @@ console.log(list);
 
 console.log(JSON.stringify(list.getHead()));
 
-console.log(JSON.stringify(list.insertAt(8, 3)));
+console.log(JSON.stringify(list.removeAt(1)));
