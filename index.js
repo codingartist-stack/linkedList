@@ -81,7 +81,6 @@ function linkedList() {
   //     return false;
   //   };
 
-  //     //returns the index or null if not found
   const find = (value) => {
     let index = 1;
     let node = head;
