@@ -57,10 +57,8 @@ function linkedList() {
   const contains = (value) => {
     let currentNode = head;
     let outcome = false;
-    console.log('testing contains' + JSON.stringify(currentNode.next));
 
     for (let i = 0; i < size; i++) {
-      console.log('testing loop' + JSON.stringify(currentNode));
       if (currentNode.data !== value) {
         currentNode = currentNode.next;
       }
