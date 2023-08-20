@@ -113,14 +113,6 @@ function linkedList() {
   };
 
   const insertAt = (value, index) => {
-    // if head = null append(value)
-    // loop through list to find index
-    //remember previous node
-    //remember current node
-    // once you find index
-    // previous.next = value
-    // value.next = current
-
     value = linkedNode(value);
 
     let currentNode = head;
