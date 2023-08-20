@@ -98,8 +98,6 @@ function linkedList() {
     return null;
   };
 
-  //turns your linked list into strings
-  //format ( data ) -> ( data ) -> ( data ) -> null
   const toString = () => {
     let string = '';
     let node = head;
@@ -114,6 +112,34 @@ function linkedList() {
     return string;
   };
 
+  const insertAt = (value, index) => {
+    // if head = null append(value)
+    // loop through list to find index
+    //remember previous node
+    //remember current node
+    // once you find index
+    // previous.next = value
+    // value.next = current
+
+    value = linkedNode(value);
+
+    let currentNode = head;
+    let previousNode;
+
+    if (head == null) {
+      append(value);
+    } else {
+      for (let i = 1; i < index; i++) {
+        previousNode = currentNode;
+        currentNode = currentNode.next;
+      }
+      previousNode.next = value;
+      value.next = currentNode;
+    }
+
+    return head;
+  };
+
   return {
     append,
     getHead,
@@ -125,6 +151,7 @@ function linkedList() {
     contains,
     find,
     toString,
+    insertAt,
   };
 }
 
@@ -132,11 +159,8 @@ const list = linkedList();
 
 [1, 2, 3, 4].forEach((v) => list.append(v));
 
-list.prepend(5);
-
 console.log(list);
 
 console.log(JSON.stringify(list.getHead()));
 
-// console.log('string: ' + JSON.stringify(list.toString()));
-console.log(list.toString());
+console.log(list.insertAt(8, 3));
