@@ -163,4 +163,4 @@ console.log(list);
 
 console.log(JSON.stringify(list.getHead()));
 
-console.log(list.insertAt(8, 3));
+console.log(JSON.stringify(list.insertAt(8, 3)));
