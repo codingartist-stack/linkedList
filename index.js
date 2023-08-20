@@ -39,9 +39,14 @@ function linkedList() {
   const getSize = () => size;
 
   const at = (index) => {
+    if (index > size - 1) {
+      return console.log(
+        `index is not a valid value. Choose value less than ${size}`
+      );
+    }
     let currentNode = head;
 
-    for (let i = 0; i < index - 1; i++) {
+    for (let i = 0; i < index; i++) {
       currentNode = currentNode.next;
     }
 
@@ -110,43 +115,38 @@ function linkedList() {
   };
 
   const insertAt = (value, index) => {
-    value = linkedNode(value);
-
-    let currentNode = head;
-    let previousNode;
-
-    if (head == null) {
-      append(value);
-    } else {
-      for (let i = 1; i < index; i++) {
-        previousNode = currentNode;
-        currentNode = currentNode.next;
-      }
-      previousNode.next = value;
-      value.next = currentNode;
+    if (index > size) {
+      return console.log(
+        `Index ${index} is not a valid. Choose number less than ${size}`
+      );
     }
+
+    const newNode = linkedNode(value);
+
+    const leftNode = at(index - 1);
+    const rightNode = leftNode.next;
+
+    leftNode.next = newNode;
+    newNode.next = rightNode;
+    size++;
 
     return head;
   };
 
   const removeAt = (index) => {
-    let currentNode = head;
-    let previousNode;
-
     if (index > size) {
       return console.log(
         `index(${index}) is greater than list length(list length = ${size})`
       );
     }
-    if (index == 1) {
-      head = head.next;
-    } else {
-      for (let i = 1; i < index; i++) {
-        previousNode = currentNode;
-        currentNode = currentNode.next;
-      }
-      previousNode.next = currentNode.next;
-    }
+
+    const leftNode = at(index - 1);
+    const rightNode = at(index + 1);
+
+    leftNode.next = rightNode;
+
+    size--;
+
     return head;
   };
 
@@ -170,8 +170,8 @@ const list = linkedList();
 
 [1, 2, 3, 4].forEach((v) => list.append(v));
 
-console.log(list);
+// console.log(list);
 
 console.log(JSON.stringify(list.getHead()));
-
-console.log(JSON.stringify(list.removeAt(1)));
+// console.log(JSON.stringify(list.removeAt(1)));
+console.log('removeAt ' + JSON.stringify(list.removeAt(2)));
